@@ -59,6 +59,7 @@ services:
 
 ### Workspace Utilities ##################################
     workspace:
+      container_name: laradock_workspace
       build:
         context: ./workspace
         args:
@@ -202,6 +203,7 @@ services:
 
 ### PHP-FPM ##############################################
     php-fpm:
+      container_name: laradock_php-fpm
       build:
         context: ./php-fpm
         args:
@@ -393,6 +395,7 @@ services:
 
 ### NGINX Server #########################################
     nginx:
+      container_name: laradock_nginx
       build:
         context: ./nginx
         args:
@@ -509,6 +512,7 @@ services:
 
 ### MySQL ################################################
     mysql:
+      container_name: laradock_mysql
       build:
         context: ./mysql
         args:
@@ -711,6 +715,7 @@ services:
 
   ### Redis ################################################
     redis:
+      container_name: laradock_redis
       build: ./redis
       volumes:
         - ${DATA_PATH_HOST}/redis:/data
@@ -932,6 +937,7 @@ services:
 
 ### phpMyAdmin ###########################################
     phpmyadmin:
+      container_name: laradock_phpmyadmin
       build: ./phpmyadmin
       environment:
         - PMA_ARBITRARY=1
@@ -1508,6 +1514,7 @@ services:
 
 ### Docker-in-Docker ################################################
     docker-in-docker:
+      container_name: laradock_docker-in-docker
       image: docker:19.03-dind
       environment:
         DOCKER_TLS_SAN: DNS:docker-in-docker
