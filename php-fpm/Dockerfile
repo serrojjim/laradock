@@ -1240,10 +1240,14 @@ RUN if [ ${INSTALL_FAKETIME} = true ]; then \
 ARG LOCALE=POSIX
 ENV LC_ALL ${LOCALE}
 
-WORKDIR /var/www/laravel
+WORKDIR /var/www
 
 RUN chown -R www-data:www-data /var/www
 RUN chmod -R 775 /var/www
+
+RUN cd /var/www
+RUN mkdir storage
+RUN chown -R www-data:www-data /var/www/storage
 
 
 CMD ["php-fpm"]
