@@ -1243,8 +1243,12 @@ ENV LC_ALL ${LOCALE}
 WORKDIR /var/www
 
 RUN chown -R www-data:www-data /var/www
-RUN chown -R www-data:www-data /var/www/storage
 RUN chmod -R 775 /var/www
+RUN ls
+RUN cd /var/www
+RUN ls
+RUN chmod -R 775 /var/www/storage
+
 
 CMD ["php-fpm"]
 
